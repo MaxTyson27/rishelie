@@ -1,7 +1,14 @@
 
 body{
+  background: rgba(54, 51, 52, 0.95);
+  @extend %mon-400;
+  font-size: 16px;
+}
 
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
 }
 
 
-// -- Grid breakpoints --

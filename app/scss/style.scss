@@ -6,8 +6,75 @@
 @import 'global';
 
 
-.d{
-  color: #000;
+.header{
+  &__top{
+    background: #302E2F;
+    padding: 20px 0;
+    &-inner{
+      @include flex-between;
+    }
+  }
+}
+
+.menu{
+  &__list{
+    display: flex;
+    &-item{
+      height: 60px;
+      @include flex-center;
+      border-left: 0.5px solid #525252;
+      padding: 0 19px;
+      color: #fff;
+    }
+    &-link{
+      color: #fff;
+      font-size: 14px;
+      line-height: 17px;
+      position: relative;
+      &--border{
+        padding: 14px 35px;
+        border-radius: 30px;
+        border: 2px solid #E17B31;
+        transition: all .3s;
+        &:hover{
+          background-color: #E17B31;
+        }
+      }
+      &--info{
+        position: relative;
+        padding-right: 21px;
+        &::before{
+          content: '';
+          position: absolute;
+          background-image: url('../images/icons/arrow-info.png');
+          background-repeat: no-repeat;
+          height: 20px;
+          width: 16px;
+          right: 0;
+          top: -2px;
+        }
+      }
+    }
+    &-cart{
+      padding-left: 19px;
+      position: relative;
+      @include flex-center;
+      span{
+        position: absolute;
+        top: 17px;
+        right: 2px;
+        font-size: 8px;
+        color: #fff;
+        width: 10px;
+        height: 10px;
+        background-color: $accent;
+        border-radius: 50%;
+        @include flex-center;
+        @extend %mon-500;
+        line-height: 10px;
+      }
+    }
+  }
 }
 
 

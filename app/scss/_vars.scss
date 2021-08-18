@@ -37,6 +37,12 @@ $accent: #E17B31;
 	align-items: $align;
 }
 
+@mixin flex-between () {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 // Центрирование элемента внутри блока
 @mixin center-item ($position: absolute) {
 	position: $position; 
@@ -365,8 +371,7 @@ $enable-grid-classes: true;
 $grid-breakpoints: (
     xs: 0,
     sm: 375px,
-    xl: 1440px,
-    xxl: 1920px,
+    lg: 1170px,
 );
 @include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
 @include _assert-starts-at-zero($grid-breakpoints, '$grid-breakpoints');
@@ -376,8 +381,7 @@ $grid-breakpoints: (
 
 $container-max-widths: (
     sm: 375px,
-    xl: 1440px,
-    xxl: 1920px,
+    lg: 1170px,
 );
 @include _assert-ascending($container-max-widths, '$container-max-widths');
 
