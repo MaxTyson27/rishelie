@@ -20,9 +20,31 @@
 
 $accent: #E17B31; 
 
+%bg{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+@mixin fz($f, $c, $l){
+  font-size: $f;
+  color: $c;
+  line-height: $l;
+}
 
+@mixin bg-set ($path) {
+  background-image: url($path);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+%sel{
+  border: 1px solid rgba(225, 123, 49, 0.4);
+  border-radius: 30px; 
+  transition: all .3s;
+}
+%sel-a{
+  border: 1px solid #E17B31;
+}
 
 // Флексы
 @mixin flex-center () {
