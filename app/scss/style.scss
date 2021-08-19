@@ -5,12 +5,7 @@
 @import 'grid';
 @import 'global';
 
-body::-webkit-scrollbar{
-    width: 2px;
-    height: 70px;
-    background-color: #E17B31;
-    border-radius: 2.5px;
-  }
+
 
 .header{
   &__top{
@@ -320,6 +315,7 @@ body::-webkit-scrollbar{
   height: 1088px;
   padding-top: 120px;
   @include bg-set('../images/design/man-bg.jpg');
+  position: relative;
   &__inner{
     display: flex;
     flex-direction: column;
@@ -557,9 +553,27 @@ body::-webkit-scrollbar{
 }
 
 .modal-font{
-  
+  width: 793px;
+  background: #363334;
+  box-shadow: 0px -1px 21px 15px rgba(35, 26, 26, 0.15);
+  border-radius: 30px;
+  padding: 42px;
+  position: absolute;
+  top: 209px;
+  right: 20.3%;
+  display: none;
+  &.modal-text--active{
+    display: block;
+  }
+  &__title{
+    @include fz(26px, #fff, 32px);
+    margin-bottom: 21px;
+    @extend %mon-600;
+  }
+
   &__fonts{
     height: 180px;
+    margin-bottom: 20px;
     overflow-y: scroll;
     width: 638px;
     display: flex;
@@ -593,8 +607,150 @@ body::-webkit-scrollbar{
       }
     }
   }
+  .design__tabs-color{
+    width: 100%;
+  }
+  .design__tabs-color-box{
+    flex-wrap: nowrap;
+  }
+  .design__tabs-select-title{
+    @include fz(26px, #fff, 32px);
+    margin-bottom: 14px;
+    @extend %mon-500;
+
+  }
+  &__text{
+    &-title{
+      @include fz(26px, #fff, 32px);
+      @extend %mon-500;
+    }
+    &-form{
+      width: 166px;
+      &-area{
+        width: 636px;
+      }
+    }
+    &-box{
+      margin-bottom: 14px;
+      @include flex-between;
+      max-width: 636px;
+      
+    }
+    &-label{
+      cursor: pointer;
+      display: flex;
+      p{
+        display: block;
+        margin-left: 28px;
+        margin-top: 2px;
+        @extend %mon-500;
+        @include fz(14px, #fff, 17px);
+      }
+    }
+    &-input{
+      @extend %checkbox-hidden;
+      &:checked + .modal-font__text-checkbox{
+        background-image: url('../images/icons/checkbox.svg');
+        background-repeat: no-repeat;
+        background-color: $accent;
+      }
+    }
+    &-checkbox{
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border: 1px solid $accent;
+      border-radius: 5px;
+      position: absolute;
+      
+    }
+    &-textarea{
+      resize: none;
+      width: 100%;
+      height: 85px;
+      padding: 14px;
+      border-radius: 10px;
+      background: #323031;
+      outline: transparent;
+      @include fz(16px, #fff, 20px);
+      border: 1px solid rgba(225, 123, 49, 0.4);
+      margin-bottom: 24px;
+      &::placeholder{
+        @include fz(16px, #fff, 20px);
+      }
+    }
+    &-btn{
+      border: 1px solid #E17B31;
+      border-radius: 30px;
+      width: 270px;
+      height: 70px;
+      @extend %mon-700;
+      color: #fff;
+      line-height: 20px;
+      @include flex-center;
+      transition: all .3s;
+      &:hover{
+        background-color: #E17B31;
+      }
+    }
+    &-button{
+      width: 635px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  
 }
 
+.modal-picture{
+  width: 793px;
+  background: #363334;
+  box-shadow: 0px -1px 21px 15px rgba(35, 26, 26, 0.15);
+  border-radius: 30px;
+  padding: 42px;
+  position: absolute;
+  top: 209px;
+  right: 20.3%;
+  display: none;
+  &.modal-pic--active{
+    display: block;
+  }
+  .modal-font__fonts{
+    width: 602px;
+  }
+  .design__tabs-color{
+    width: 100%;
+  }
+  .design__tabs-color-box{
+    flex-wrap: nowrap;
+  }
+  .design__tabs-select-title{
+    margin-bottom: 14px;
+    @extend %mon-500;
+  }
+}
+
+.modal__select-pic{
+  &-box{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  &-link{
+    padding: 20px 40px;
+    border: 1px solid #67676C;
+    border-radius: 30px;
+    line-height: 20px;
+    color: #fff;
+    @extend %mon-500;
+    margin-bottom: 14px;
+    margin-right: 14px;
+    transition: all .3s;
+    &.modal__select-pic-link--active{
+      border: 1px solid #E17B31;
+    }
+  }
+}
 
 
 

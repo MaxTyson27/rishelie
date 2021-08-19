@@ -76,5 +76,26 @@ $(function () {
     $(".design").css("background-image", "url(" + pillowUrl + ")");
   });
 
+  $('.addText').on('click', function (e) {
+    e.preventDefault();
+    $('#addText').addClass('modal-text--active');
+  });
+  $('.modal-font__close').on('click', function () {
+    $('#addText').removeClass('modal-text--active');
+  });
+
+  $('.modal__select-pic-link').on('click', function (e) {
+    e.preventDefault();
+    $('.modal__select-pic-link').removeClass('modal__select-pic-link--active');
+    $(this).addClass('modal__select-pic-link--active');
+  });
+
+  $('.addPicture').on('click', function (e) {
+    e.preventDefault();
+    $('#addPicture').addClass('modal-pic--active');
+  });
+  $('.modal-picture__close').on('click', function () {
+    $('#addPicture').removeClass('modal-pic--active');
+  });
 
 });

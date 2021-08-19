@@ -46,6 +46,14 @@ $accent: #E17B31;
   border: 1px solid #E17B31;
 }
 
+%checkbox-hidden{
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
+
 // Флексы
 @mixin flex-center () {
 	display: flex;

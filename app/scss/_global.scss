@@ -4,6 +4,19 @@ body{
   @extend %mon-400;
   font-size: 16px;
   color: #fff;
+  &::-webkit-scrollbar{
+    border-radius: 2.5px;
+    width: 4px;
+    
+  }
+  &::-webkit-scrollbar-track{
+    background-color: #424143;
+    
+  }  
+  &::-webkit-scrollbar-thumb{
+    background-color: #E17B31;
+    height: 10px;
+  }
 }
 
 .wrapper {
@@ -13,4 +26,10 @@ body{
   
 }
 
+.modal-font__close,
+.modal-picture__close{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
 
