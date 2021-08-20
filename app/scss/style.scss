@@ -803,49 +803,7 @@
   }
 }
 
-.swiper,
-.swiper-questions{
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-    
 
-  }
-  .swiper__arrows{
-    display: flex;
-  }
-  .swiper-button-next-reviews{
-    order: 2;
-    cursor: pointer;
-  }
-  .swiper-button-prev-reviews{
-    order: 1;
-    cursor: pointer;
-  }
-  .swiper-wrapper {
-    position: relative;
-    box-sizing: border-box;
-  }
-  .swiper-pagination__wrapp{
-    @include flex-between;
-  }
-  .swiper-pagination{
-    @include center-item-x;
-  }
-  .swiper-pagination-bullet{
-      width: 12px;
-      height: 12px;
-      border: 0.5px solid rgba(255, 255, 255, 0.5);
-      background-color: transparent;
-      &.swiper-pagination-bullet-active{
-        background-color: $accent;
-        border: 0.5px solid $accent;
-      }
-    &:not(:last-child){
-      margin-right: 10px;
-    }
-  }
 
 .reviews{
   padding-bottom: 90px;
@@ -974,7 +932,7 @@
     
   }
   &__content{
-    height: 440px;
+    // height: 440px;
     &-link{
       color: #FFFFFF;
       text-decoration: underline;
@@ -1024,23 +982,69 @@
 }
 
 #tabQuestions{
-  top: -473px;
+  position: absolute;
+  width: 1140px;
+  left: 0;
+  right: 0;
+  top: 252px;
+  z-index: 2;
 }
 
 .reviews__content-swiper{
-  opacity: 0;
+  visibility: hidden;
   
   &.swiper--active{
-    opacity: 1;
-  }
-  &.none{
-    display: none;
-  }
-  &.none.swiper--active{
-    display: block;
+    visibility: visible;
   }
 }
 
+.catalog{
+  padding-top: 120px;
+  &__title{
+    @extend %h2;
+    max-width: 540px;
+    margin-bottom: 40px;
+  }
+  &__item{
+    width: 270px;
+    margin-bottom: 51px;
+    &-image{
+      margin-bottom: 34px;
+    }
+    &-text{
+      @include fz(22px, #fff, 27px);
+      padding-bottom: 14px;
+      display: block;
+      border-bottom: 1px solid #7B7B80;
+      margin-bottom: 15px;
+    }
+    &-box{
+      @include flex-between;
+    }
+    &-price,
+    &-num{
+      @include fz(20px, #A9A9A9, 24px);
+      @extend %mon-600;
+    }
+    &-num{
+      color: #fff;
+    }
+  }
+  &__bottom-link{
+    width: 232px;
+    height: 64px;
+    @include flex-center;
+    border: 2px solid #E17B31;
+    border-radius: 35px;
+    color: #fff;
+    line-height: 20px;
+    @extend %mon-700;
+    transition: all .3s;
+    &:hover{
+      background-color: $accent;
+    }
+  }
+}
 
 
 

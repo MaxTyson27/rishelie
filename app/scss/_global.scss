@@ -33,3 +33,52 @@ body{
     top: 40px;
 }
 
+.swiper,
+.swiper-questions,
+.catalog-swiper{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    
+
+  }
+  .swiper__arrows{
+    display: flex;
+  }
+  .swiper-button-next-reviews,
+  .swiper-button-next-questions,
+  .swiper-button-next-catalog{
+    order: 2;
+    cursor: pointer;
+  }
+  .swiper-button-prev-reviews,
+  .swiper-button-prev-questions,
+  .swiper-button-prev-catalog{
+    order: 1;
+    cursor: pointer;
+  }
+  .swiper-wrapper {
+    position: relative;
+    box-sizing: border-box;
+  }
+  .swiper-pagination__wrapp{
+    @include flex-between;
+  }
+  .swiper-pagination{
+    // @include center-item-x;
+    position: static;
+  }
+  .swiper-pagination-bullet{
+      width: 12px;
+      height: 12px;
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      background-color: transparent;
+      &.swiper-pagination-bullet-active{
+        background-color: $accent;
+        border: 0.5px solid $accent;
+      }
+    &:not(:last-child){
+      margin-right: 10px;
+    }
+  }

@@ -16,7 +16,7 @@ $(function () {
     autoplaySpeed: 4000,
   });
 
-  var swiper = new Swiper('.swiper', {
+  var swiperReviews = new Swiper('.swiper', {
     slidesPerView: 4,
     spaceBetween: 20,
     slidesPerGroup: 4,
@@ -32,21 +32,39 @@ $(function () {
     },
   });
 
-  var swiper = new Swiper('.swiper-questions', {
+  var swiperQuestions = new Swiper('.swiper-questions', {
     slidesPerView: 4,
     spaceBetween: 20,
     slidesPerGroup: 4,
     loop: true,
     loopFillGroupWithBlank: true,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.swiper-pagination-questions',
       clickable: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next-reviews',
-      prevEl: '.swiper-button-prev-reviews',
+      nextEl: '.swiper-button-next-questions',
+      prevEl: '.swiper-button-prev-questions',
     },
   });
+
+  var swiperCatalog = new Swiper('.catalog-swiper', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    slidesPerGroup: 4,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: '.swiper-pagination-catalog',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-catalog',
+      prevEl: '.swiper-button-prev-catalog',
+    },
+  });
+
+
 
   $('.design__tabs-link').on('click', function (e) {
     e.preventDefault();
