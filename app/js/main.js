@@ -16,6 +16,38 @@ $(function () {
     autoplaySpeed: 4000,
   });
 
+  var swiper = new Swiper('.swiper', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    slidesPerGroup: 4,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-reviews',
+      prevEl: '.swiper-button-prev-reviews',
+    },
+  });
+
+  var swiper = new Swiper('.swiper-questions', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    slidesPerGroup: 4,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-reviews',
+      prevEl: '.swiper-button-prev-reviews',
+    },
+  });
+
   $('.design__tabs-link').on('click', function (e) {
     e.preventDefault();
     $('.design__tabs-link').removeClass('design__tabs-link--active');
@@ -23,6 +55,15 @@ $(function () {
 
     $('.design__tabs-content-item').removeClass('design__tabs-content-item--active');
     $($(this).attr('href')).addClass('design__tabs-content-item--active');
+  });
+
+  $('.reviews__tabs-link').on('click', function (e) {
+    e.preventDefault();
+    $('.reviews__tabs-link').removeClass('reviews__tabs-link--active');
+    $(this).addClass('reviews__tabs-link--active');
+
+    $('.reviews__content-swiper').removeClass('swiper--active');
+    $($(this).attr('href')).addClass('swiper--active');
   });
 
 
