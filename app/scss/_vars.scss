@@ -65,6 +65,8 @@ $accent: #E17B31;
   @extend %mon-700;
 }
 
+
+
 // Флексы
 @mixin flex-center () {
 	display: flex;
@@ -84,6 +86,14 @@ $accent: #E17B31;
 	align-items: center;
 }
 
+
+%result-box{
+      background: rgba(42, 41, 48, 0.75);
+      border-radius: 30px;
+      height: 47px;
+      @include flex-center;
+      position: absolute;
+}
 // Центрирование элемента внутри блока
 @mixin center-item ($position: absolute) {
 	position: $position; 
