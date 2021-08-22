@@ -19,6 +19,7 @@
 }
 
 $accent: #E17B31; 
+$border: #7b7b80;
 
 %bg{
   background-repeat: no-repeat;
@@ -64,6 +65,13 @@ $accent: #E17B31;
   @include fz(40px, #fff, 49px);
   @extend %mon-700;
 }
+
+%h3{
+  @include fz(30px, #fff, 116.4%);
+  @extend %mon-600;
+}
+
+
 
 
 
@@ -422,7 +430,7 @@ $enable-grid-classes: true;
 $grid-breakpoints: (
     xs: 0,
     sm: 375px,
-    lg: 1170px,
+    lg: 1200px,
 );
 @include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
 @include _assert-starts-at-zero($grid-breakpoints, '$grid-breakpoints');
@@ -432,7 +440,7 @@ $grid-breakpoints: (
 
 $container-max-widths: (
     sm: 375px,
-    lg: 1170px,
+    lg: 1200px,
 );
 @include _assert-ascending($container-max-widths, '$container-max-widths');
 

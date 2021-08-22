@@ -20,6 +20,20 @@ $(function () {
     autoplaySpeed: 4000,
   });
 
+
+
+  var swiper = new Swiper('.blog__slider', {
+    slidesPerView: 1.7,
+    spaceBetween: 30,
+    slidesPerGroup: 1,
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+      nextEl: '.blog-button-next',
+      prevEl: '.blog-button-prev',
+    },
+  });
+
   var swiperReviews = new Swiper('.swiper', {
     slidesPerView: 4,
     spaceBetween: 20,
