@@ -1,5 +1,33 @@
 
 
+const headerFix = document.querySelector('.header__top');
+let lastScroll = 0;
+const defaultOffset = 1000;
+const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+const containHide = () => headerFix.classList.contains('header-hide');
+
+window.addEventListener('scroll', () => {
+  if (scrollPosition() > lastScroll && !containHide()) {
+    headerFix.classList.add('header-hide');
+
+  } else if (scrollPosition() < lastScroll && containHide()) {
+    headerFix.classList.remove('header-hide');
+  }
+  lastScroll = scrollPosition();
+});
+
+const navBg = document.querySelector('.header__bg');
+const dropMenu = document.querySelector('.drop-down');
+
+window.addEventListener('scroll', () => {
+  if (containHide()) {
+    navBg.classList.remove('active-drop-down');
+    dropMenu.classList.remove('drop-down--active');
+    document.querySelector('.menu__list').classList.remove('menu__list--active');
+  };
+});
+
+
 
 
 $(function () {
@@ -20,7 +48,13 @@ $(function () {
     autoplaySpeed: 4000,
   });
 
+  $('.burger').on('click', function () {
+    $('.menu__list').toggleClass('menu__list--active');
+  });
 
+  $('.menu__list-item-close').on('click', function () {
+    $('.menu__list').removeClass('menu__list--active');
+  });
 
   var swiper = new Swiper('.blog__slider', {
     slidesPerView: 1.7,
@@ -35,11 +69,10 @@ $(function () {
   });
 
   var swiperReviews = new Swiper('.swiper', {
-    slidesPerView: 4,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
     spaceBetween: 20,
-    slidesPerGroup: 4,
-    loop: true,
-    loopFillGroupWithBlank: true,
+    navigation: false,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -48,14 +81,19 @@ $(function () {
       nextEl: '.swiper-button-next-reviews',
       prevEl: '.swiper-button-prev-reviews',
     },
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        slidesPerGroup: 4,
+      },
+    }
   });
 
   var swiperQuestions = new Swiper('.swiper-questions', {
-    slidesPerView: 4,
+    slidesPerView: 1,
     spaceBetween: 20,
-    slidesPerGroup: 4,
-    loop: true,
-    loopFillGroupWithBlank: true,
+    slidesPerGroup: 1,
     pagination: {
       el: '.swiper-pagination-questions',
       clickable: true,
@@ -64,14 +102,19 @@ $(function () {
       nextEl: '.swiper-button-next-questions',
       prevEl: '.swiper-button-prev-questions',
     },
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        slidesPerGroup: 4,
+      },
+    }
   });
 
   var swiperCatalog = new Swiper('.catalog-swiper', {
-    slidesPerView: 4,
+    slidesPerView: 1.3,
     spaceBetween: 20,
-    slidesPerGroup: 4,
-    loop: true,
-    loopFillGroupWithBlank: true,
+    slidesPerGroup: 1,
     pagination: {
       el: '.swiper-pagination-catalog',
       clickable: true,
@@ -80,11 +123,19 @@ $(function () {
       nextEl: '.swiper-button-next-catalog',
       prevEl: '.swiper-button-prev-catalog',
     },
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        slidesPerGroup: 4,
+      },
+    }
   });
 
   var swiperResult = new Swiper('.result__swiper', {
     slidesPerView: 1,
     slidesPerGroup: 1,
+    spaceBetween: 20,
     pagination: {
       el: '.swiper-pagination-result',
       clickable: true,
@@ -115,25 +166,63 @@ $(function () {
     $($(this).attr('href')).addClass('swiper--active');
   });
 
+  $('#reviews').on('click', function () {
+    $('#reviews-btn').addClass('reviews-btn--active');
+    $('#questions-btn').removeClass('reviews-btn--active');
+  })
 
-  $('.design__tabs-gender-link--man, .bathrobe').on('click', function (e) {
-    e.preventDefault();
-    var manUrl = "images/design/man-bg.jpg";
-    $(".design").css("background-image", "url(" + manUrl + ")");
+  $('#questions').on('click', function () {
+    $('#reviews-btn').removeClass('reviews-btn--active');
+    $('#questions-btn').addClass('reviews-btn--active');
+  });
+
+
+  const child = $('.design__tabs-gender-link--child');
+  const man = $('.design__tabs-gender-link--man');
+  const wooman = $('.design__tabs-gender-link--wooman');
+  const design = $('.design');
+
+  $('.design__tabs-gender-link--child').on('click', function () {
+    design.addClass('child-bg');
+    design.removeClass('man-bg');
+    design.removeClass('wooman-bg');
+  });
+  $('.design__tabs-gender-link--man').on('click', function () {
+    design.addClass('man-bg');
+    design.removeClass('wooman-bg');
+    design.removeClass('child-bg');
+  });
+  $('.design__tabs-gender-link--wooman').on('click', function () {
+    design.addClass('wooman-bg');
+    design.removeClass('man-bg');
+    design.removeClass('child-bg');
+  });
+
+  $('.bathrobe').on('click', function () {
+    design.addClass('man-bg');
+    design.removeClass('pillow');
+    design.removeClass('towel');
+    design.removeClass('child-bg');
+    design.removeClass('wooman-bg');
+    $('.design__tabs-gender-link').removeClass('gender-link--active');
+  });
+
+  $('.towel').on('click', function () {
+    design.addClass('towel');
+    design.removeClass('man-bg');
+    design.removeClass('child-bg');
+    design.removeClass('wooman-bg');
+    design.removeClass('pillow');
   });
 
 
 
-  $('.design__tabs-gender-link--wooman').on('click', function (e) {
-    e.preventDefault();
-    var woomanUrl = "images/design/wooman-bg.jpg";
-    $(".design").css("background-image", "url(" + woomanUrl + ")");
-  });
-
-  $('.design__tabs-gender-link--child').on('click', function (e) {
-    e.preventDefault();
-    var childUrl = "images/design/child-bg.jpg";
-    $(".design").css("background-image", "url(" + childUrl + ")");
+  $('.pillow').on('click', function () {
+    design.addClass('pillow');
+    design.removeClass('man-bg');
+    design.removeClass('child-bg');
+    design.removeClass('wooman-bg');
+    design.removeClass('towel');
   });
 
 
@@ -156,15 +245,7 @@ $(function () {
     $(this).addClass('gender-link--active');
   });
 
-  $('.towel').on('click', function () {
-    var towelUrl = "images/design/towel-bg.jpg";
-    $(".design").css("background-image", "url(" + towelUrl + ")");
-  });
 
-  $('.pillow').on('click', function () {
-    var pillowUrl = "images/design/pillow.jpg";
-    $(".design").css("background-image", "url(" + pillowUrl + ")");
-  });
 
   $('.addText').on('click', function (e) {
     e.preventDefault();

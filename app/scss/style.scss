@@ -7,19 +7,27 @@
 
 
 .header{
+  padding-top: 100px;
   &__top{
     background: #302E2F;
     padding: 20px 0;
+    transition: transform .3s linear;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
     &-inner{
       @include flex-between;
+      position: relative;
     }
   }
   &__bg{
     width: 100%;
     height: 100vh;
-    position: absolute;
     display: none;
     z-index: 100;
+    position: fixed;
     &.active-drop-down{
       display: block;
     }
@@ -42,6 +50,7 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.35);
             transition: all .3s;
+            border: none;
           }
         }
         .slick-active{
@@ -57,13 +66,12 @@
       height: 811px;
       background-repeat: no-repeat;
       background-size: cover;
-      
+      background-image: url('../images/header-bg.jpg');
       &-content{
         height: 811px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-left: 375px;
       }
       &-title{
         font-size: 50px;
@@ -104,6 +112,12 @@
       }
     }
   }
+  &__cart{
+    position: absolute;
+    right: -45px;
+    top: 10px;
+    cursor: pointer;
+  }
 }
 
 .menu{
@@ -116,6 +130,12 @@
       padding: 0 19px;
 
       position: relative;
+      &:nth-child(5){
+        display: none;
+      }
+      &-close{
+        display: none;
+      }
     }
     &-link{
       color: #fff;
@@ -151,13 +171,6 @@
           transition: all .3s;
         }
       }
-    }
-    &-cart{
-      padding-left: 19px;
-      position: relative;
-      @include flex-center;
-      cursor: pointer;
-      
     }
   }
 }
@@ -300,12 +313,32 @@
 .design{
   height: 1088px;
   padding-top: 120px;
-  @include bg-set('../images/design/man-bg.jpg');
   position: relative;
+  &.man-bg{
+    @include bg-set('../images/design/man-bg.jpg');
+  }
+  &.child-bg{
+    @include bg-set('../images/design/child-bg.jpg');
+  }
+  &.wooman-bg{
+    @include bg-set('../images/design/wooman-bg.jpg');
+  }
+  &.bathrobe{
+    @include bg-set('../images/design/man-bg.jpg');
+  }
+  &.towel{
+    @include bg-set('../images/design/towel-bg.jpg');
+  }
+  &.pillow{
+    @include bg-set('../images/design/pillow.jpg');
+  }
   &__inner{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    &-wrapp{
+      position: relative;
+    }
   }
   
   &__title{
@@ -545,8 +578,8 @@
   border-radius: 30px;
   padding: 42px;
   position: absolute;
-  top: 209px;
-  right: 20.3%;
+  top: 80px;
+  right: 0;
   display: none;
   &.modal-text--active{
     display: block;
@@ -695,11 +728,16 @@
   border-radius: 30px;
   padding: 42px;
   position: absolute;
-  top: 209px;
-  right: 20.3%;
+  top: 80px;
+  right: 0;
   display: none;
   &.modal-pic--active{
     display: block;
+  }
+  .modal-font__fonts-item{
+    img{
+      width: 60px;
+    }
   }
   .modal-font__fonts{
     width: 602px;
@@ -744,6 +782,9 @@
     padding-bottom: 76px;
     @include bg('../images/form-bg.png', auto);
     background-position: right bottom;
+    img{
+      display: none;
+    }
 
   }
   &__title{
@@ -795,7 +836,6 @@
   padding-bottom: 90px;
   background: #302E2F;
   position: relative;
-  
   &__top{
     @include flex-between;
     padding-top: 120px;
@@ -830,14 +870,18 @@
     line-height: 20px;
     @extend %mon-700;
     transition: all .3s;
+    display: none;
+    &.reviews-btn--active{
+      display: flex;
+    }
     &:hover{
       background-color: $accent;
     }
   }
   &__item{
     margin-bottom: 40px;
-    &-content,
-    .swiper-slide{
+    &-content-wrapper{
+      margin: 0 auto;
       width: 270px;
       background: #363334;
       border-radius: 20px;
@@ -1389,7 +1433,7 @@
   height: 4000px;
   position: relative;
   &__text-box--second{
-    height: 1277px;
+    height: 1080px;
     width: 100%;
     margin-top: 800px;
   }
@@ -1459,7 +1503,7 @@
   .scroll__text-sticky{
     top: 500px;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: 300px;
     margin-top: 400px;
   }
   .scroll__text{
@@ -1824,6 +1868,7 @@
 .blog-button-next,
 .blog-button-prev{
   position: absolute;
+  cursor: pointer;
   z-index: 10;
   bottom: 37px;
 }

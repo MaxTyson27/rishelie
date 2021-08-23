@@ -50,7 +50,6 @@ body{
 .wrapper {
   width: 100%;
   min-height: 100%;  
-  // overflow-x: hidden;
 }
 
 .modal-font__close,
@@ -112,5 +111,32 @@ body{
       }
     &:not(:last-child){
       margin-right: 10px;
+    }
+  }
+
+
+  .header-hide{
+    transform: translateY(-100px);
+  }
+  
+  .burger{
+    width: 40px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    display: none;
+    span{
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background-color: #fff;
+      left: 0;
+      top: 0;
+      &:nth-child(2){
+        top: 11px;
+      }
+      &:last-child{
+        top: 22px;
+      }
     }
   }
