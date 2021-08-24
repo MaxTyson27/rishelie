@@ -26,6 +26,12 @@ $border: #7b7b80;
   background-size: cover;
 }
 
+@mixin fw($f, $l, $w){
+  font-size: $f;
+  line-height: $l;
+  font-weight: $w;
+}
+
 @mixin fz($f, $c, $l){
   font-size: $f;
   color: $c;
@@ -76,6 +82,13 @@ $border: #7b7b80;
   @extend %mon-600;
 }
 
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}
 
 
 
